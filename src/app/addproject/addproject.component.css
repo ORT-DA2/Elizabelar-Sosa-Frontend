@@ -1,0 +1,27 @@
+
+#block_container{
+	background-color:#E4DCDC;
+	padding-top:5px;
+  
+	margin: 0px auto;
+  width: 40%;
+	padding: 10px;
+	border-radius: 20px;
+	height:30%;
+}
+
+#input{
+  margin-bottom: 10px;
+  font-size: 28px;
+  width: 20%;
+}
+
+#buttonAdd{
+  margin-top: 10px;
+}
+
+.form-control{
+  width: 80%;
+
+}
+

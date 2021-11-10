@@ -1,0 +1,31 @@
+<app-project></app-project>
+<div class="projectList">
+  <div class="projectList1">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects" scope="row" (click)="listIncidents(project.id)">
+        <td>
+          {{project.id}}
+        </td>
+        <td>
+          {{project.name}}
+        </td>
+        <td>
+          <mat-icon (click)="updateProject(project.id, project.name)">edit</mat-icon> 
+        </td>
+        <td>
+          <!--<mat-icon (click)="updateProject(project.id, project.name)">add</mat-icon>-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  
