@@ -1,0 +1,54 @@
+.projectList{
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.projectList1{
+  display: inline-block; 
+  align-items: center;
+  width: 100%;
+
+}
+
+.main, .main-menu{
+    margin: 5px; height: 80px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top:45px;
+  }
+  h1{
+    font-family: 'Rock Salt', cursive;
+    padding: 20px;
+    font-style: italic;
+    caption-side: bottom;
+    color: #666;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  th{
+    color: white;
+    padding: 20px;
+    caption-side: bottom;
+    color: #666;
+  }
+  
+  th,
+  td {
+    text-align: center;
+    padding: 5px;
+    caption-side: bottom;
+    background-color: #E5E7E9;
+    font-size:18px;
+
+  }
+  
+  td{
+    border: none;
+    background-color: #E5E7E9;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,32 @@
+<h1>Gestión de Incidentes</h1>
+<div class="container">
+    <form [formGroup]="editarForm" (ngSubmit)="UpdateIncident(editarForm.value)"> 
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre del Incidente" formControlName="name">
+
+            <label for="exampleFormControlInput1">Dominio</label>
+            <input type="text" class="form-control" placeholder="Nombre del dominio" formControlName="domain">
+            
+            <label for="exampleFormControlInput1">Descripción</label>
+            <input type="text" class="form-control" placeholder="Descripción del incidente" formControlName="description">
+            
+            <label for="exampleFormControlInput1">Versión</label>
+            <input type="text" class="form-control" placeholder="Versión" formControlName="version">
+
+            
+            <label for="exampleFormControlInput1">Status</label>
+            <input type="text" class="form-control" placeholder="Status" formControlName="status">
+
+            
+            <input type="text" type="hidden" class="form-control" placeholder="Status" formControlName="projectId">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <button type="button" class="btn btn-danger" (click)="DeleteIncident(editarForm.value)">Borrar</button>
+    </form>
+</div>
+
+<button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+</button>
