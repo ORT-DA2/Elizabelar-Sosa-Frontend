@@ -23,6 +23,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { AdduserprojectComponent } from './adduserproject/adduserproject.component';
+import { AngularDualListBoxModule } from 'angular-dual-listbox';
+import { AddincidentComponent } from './addincident/addincident.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +38,9 @@ import {MatTableModule} from '@angular/material/table';
     EditprojectComponent,
     ListincidentComponent,
     EditincidentComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdduserprojectComponent,
+    AddincidentComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,9 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule,
+    AngularDualListBoxModule
   ],
   providers: [],
   bootstrap: [ AppComponent, LoginComponent, ProjectComponent,AddprojectComponent, ListprojectComponent]

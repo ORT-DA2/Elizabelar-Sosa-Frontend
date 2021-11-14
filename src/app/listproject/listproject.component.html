@@ -17,10 +17,10 @@
           {{project.name}}
         </td>
         <td>
-          <mat-icon (click)="updateProject(project.id, project.name)">edit</mat-icon> 
+          <mat-icon matTooltip="Editar" (click)="updateProject(project.id, project.name)">edit</mat-icon> 
         </td>
         <td>
-          <!--<mat-icon (click)="updateProject(project.id, project.name)">add</mat-icon>-->
+          <mat-icon matTooltip="Agregar usuarios" (click)="addUser(project.id)">add</mat-icon>
         </td>
       </tr>
     </tbody>

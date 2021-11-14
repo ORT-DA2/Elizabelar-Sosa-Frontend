@@ -1,4 +1,5 @@
 <app-project></app-project>
+
 <div class="container">
     <form [formGroup]="editarForm" (ngSubmit)="updateProject(editarForm.value)"> 
         <div class="form-group">
@@ -6,7 +7,7 @@
             <input type="text" class="form-control" placeholder="Nombre del proyecto" formControlName="name">
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Actualizar</button>
-        <button type="button" class="btn btn-danger" (click)="deleteProject(editarForm.value)">Borrar</button>
+        <button id="buttonUpdate" type="submit" class="btn btn-primary">Actualizar</button>
+        <button id="buttonDelete" type="button" class="btn btn-danger" (click)="deleteProject(editarForm.value)">Borrar</button>
     </form>
 </div>

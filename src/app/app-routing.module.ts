@@ -8,16 +8,19 @@ import { ListincidentComponent } from './listincident/listincident.component';
 import { EditprojectComponent } from './editproject/editproject.component';
 import { EditincidentComponent } from './editincident/editincident.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { AdduserprojectComponent } from './adduserproject/adduserproject.component';
+import { AddincidentComponent } from './addincident/addincident.component';
 const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},
   {path: 'project', component: ProjectComponent},
   {path: 'login', component: LoginComponent},
   {path: 'navbar', component: NavbarComponent},
+  {path: 'userproject/:id', component: AdduserprojectComponent},
   {path: 'addproject', component: AddprojectComponent},
   {path: 'listproject', component: ListprojectComponent},
   {path: 'editproject/:id', component: EditprojectComponent},
   {path: 'projects/:id/incident', component: ListincidentComponent},
+  {path: 'projects/:id/addincident', component: AddincidentComponent},
   {path: 'projects/:id/incident/:id', component: EditincidentComponent},
   {path: '**', redirectTo:'login', pathMatch:'full'},
 ];
@@ -27,4 +30,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [ LoginComponent, AddprojectComponent, ListprojectComponent, ProjectComponent, EditprojectComponent, ListincidentComponent,EditincidentComponent]
+export const routingComponents = [ LoginComponent, AddprojectComponent, ListprojectComponent, ProjectComponent, EditprojectComponent, ListincidentComponent,EditincidentComponent, AddincidentComponent]

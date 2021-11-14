@@ -1,7 +1,9 @@
+
 <app-navbar></app-navbar>
-<h1>Gestión de Incidentes</h1>
+<h1>Agregar Incidentes</h1>
+
 <div class="container">
-    <form [formGroup]="editarForm" (ngSubmit)="UpdateIncident(editarForm.value)"> 
+    <form [formGroup]="editarForm" (ngSubmit)="AddIncident(editarForm.value)"> 
         <div class="form-group">
             <label for="exampleFormControlInput1">Nombre</label>
             <input type="text" class="form-control" placeholder="Nombre del Incidente" formControlName="name">
@@ -23,11 +25,9 @@
             <input type="text" type="hidden" class="form-control" placeholder="Status" formControlName="projectId">
         </div>
         <br>
-        <button id="buttonUpdate" type="submit" class="btn btn-primary">Actualizar</button>
-        <button id="buttonDelete" type="button" class="btn btn-danger" (click)="DeleteIncident(editarForm.value)">Borrar</button>
+        <button id="buttonUpdate" type="submit" class="btn btn-primary">Agregar</button>
     </form>
 </div>
-
 <button mat-raised-button mat-icon-button class="example-icon favorite-icon"
 matTooltip="Volver" 
 aria-label="Example icon-button with heart icon" (click)="goBack()">

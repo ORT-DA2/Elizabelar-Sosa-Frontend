@@ -24,6 +24,9 @@ export class ListprojectComponent implements OnInit {
     this.router.navigate(['editproject', id, { name: name }]);
   }
 
+  public addUser(id:string){
+    this.router.navigate(['userproject', id]);
+  }
   public listIncidents(id:string){
     this.router.navigate(['projects', id, 'incident']);
   }

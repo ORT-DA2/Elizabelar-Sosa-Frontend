@@ -15,17 +15,13 @@ h1{
     padding: 10px 20px;
     border-radius: 20px;
   }
-
-.form-control{
-    font-size: 15px;
-}
-
-#buttonUpdate{
-	margin-right: 10px;
-}
-
-#buttonUpdate, #buttonDelete{
-	width: 70px;
-	height: 30px;
-	font-size: 12px;
-}
+  #buttonSend{
+    text-align: right;
+  }
+ #buttonSend button{
+    text-align: center;
+    margin-right: 10%;
+    font-size: 13px;
+    width: 65px;
+    height: 35px;
+  }

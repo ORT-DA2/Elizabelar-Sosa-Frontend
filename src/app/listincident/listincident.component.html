@@ -1,4 +1,12 @@
+<app-navbar></app-navbar>
 <h1 class="text-center">Listado de Incidentes</h1>
+<div class="main-menu">
+  <nav id="menu">
+      <ul>
+          <li><a  (click)="addIncident()">Agregar Incidentes</a></li>
+      </ul>
+  </nav>  
+</div>  
 <table class="table table-hover">
     <thead>
       <tr>
@@ -31,17 +39,17 @@
             {{incident.status}}
           </td>
           <td>
-            <mat-icon (click)="UpdateIncident(incident.id, incident.name,incident.domain, incident.description, incident.version, incident.status)">edit</mat-icon> 
+            <mat-icon matTooltip="Editar" (click)="UpdateIncident(incident.id, incident.name,incident.domain, incident.description, incident.version, incident.status)">edit</mat-icon> 
           </td>
         </tr>
         </tbody>
 </table>
   
-<button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="goBack()">
+<button mat-raised-button mat-icon-button class="example-icon favorite-icon"
+matTooltip="Volver" 
+aria-label="Example icon-button with heart icon" (click)="goBack()">
   <mat-icon>arrow_back</mat-icon>
 </button>
-
-
 
 
 

@@ -2,12 +2,11 @@
 #block_container{
 	background-color:#E4DCDC;
 	padding-top:5px;
-  
 	margin: 0px auto;
   width: 40%;
 	padding: 10px;
 	border-radius: 20px;
-	height:30%;
+	height:25%;
 }
 
 #input{
@@ -18,10 +17,13 @@
 
 #buttonAdd{
   margin-top: 10px;
+  width: 70px;
+	height: 30px;
+	font-size: 12px;
 }
 
 .form-control{
   width: 80%;
-
+  font-size: 15px;
 }
 

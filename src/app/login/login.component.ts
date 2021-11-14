@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { LoginService } from "../services/login.service";
 import { Login } from "../Models/login";
 import { Router } from '@angular/router';
-import { Response } from '../Models/response'
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -21,19 +20,14 @@ export class LoginComponent {
     ngOnInit(): void {
     }
 
-    onLogin(form:Login){
-      this.login.Login(form).subscribe(data => {
-        console.log(data.token);
-        //let dataResponse = data;
-        
-        
-        //if(dataResponse.status == "OK"){
-        //  localStorage.setItem("token", dataResponse.response);
-        //  this.router.navigate(['project']);
-        //}else{
-        //  this.errorStatus = true;
-         // this.errorMsj = dataResponse.response.error_msg;
-        //}
-      });
+    onLogin(form: Login){
+      this.login.Login(form).subscribe(
+        (token: string) => {
+          if (this.login.isLoggedIn()){
+            this.router.navigate(['/listproject']);
+          }
+        }
+      )
     }
+    
 }

@@ -32,6 +32,9 @@ export class ListincidentComponent implements OnInit {
   goBack() {
     this._location.back();
   }
-
+  addIncident(){
+    console.log('/projects/'+ this.project +'/addincident');
+    this.router.navigate(['/projects/'+ this.project +'/addincident']);
+  }
 }
 

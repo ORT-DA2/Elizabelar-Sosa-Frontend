@@ -1,0 +1,15 @@
+<h1>Agregar Usuarios</h1>
+
+<div class="container">
+	<dual-list [source]="source" [(destination)]="target" height="150px"></dual-list>
+</div>
+
+<div id="buttonSend"> 
+  <button type="button" class="btn btn-primary" (click)="sendUsers()">Enviar</button>
+</div>
+
+<button mat-raised-button mat-icon-button class="example-icon favorite-icon"
+matTooltip="Volver" 
+aria-label="Example icon-button with heart icon" (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>

@@ -1,0 +1,25 @@
+.form-control{
+    font-size: 15px;
+}
+
+.container{
+	background-color:#E4DCDC;
+	padding-top:5px;
+  
+	margin: 0px auto;
+    width: 40%;
+	padding: 10px;
+	border-radius: 20px;
+	height:20%;
+}
+
+#buttonUpdate{
+	margin-right: 10px;
+}
+
+#buttonUpdate, #buttonDelete{
+	width: 70px;
+	height: 30px;
+	font-size: 12px;
+}
+
