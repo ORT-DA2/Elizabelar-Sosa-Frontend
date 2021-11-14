@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<h1 class="text-center">Listado de Incidentes</h1>
+<div class="main-menu">
+  <nav id="menu">
+      <ul>
+          <li><a  (click)="addIncident()">Agregar Incidentes</a></li>
+      </ul>
+  </nav>  
+</div>  
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Dominio</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Versión</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let incident of incidents" scope="row">
+          <td>
+            {{incident.id}}
+          </td>
+          <td>
+            {{incident.name}}
+          </td>
+          <td>
+            {{incident.domain}}
+          </td>
+          <td>
+            {{incident.description}}
+          </td>
+          <td>
+            {{incident.version}}
+          </td>
+          <td>
+            {{incident.status}}
+          </td>
+          <td>
+            <mat-icon matTooltip="Editar" (click)="UpdateIncident(incident.id, incident.name,incident.domain, incident.description, incident.version, incident.status)">edit</mat-icon> 
+          </td>
+        </tr>
+        </tbody>
+</table>
+  
+<button mat-raised-button mat-icon-button class="example-icon favorite-icon"
+matTooltip="Volver" 
+aria-label="Example icon-button with heart icon" (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
+
+
+

@@ -1,0 +1,35 @@
+
+<app-navbar></app-navbar>
+<h1>Agregar Incidentes</h1>
+
+<div class="container">
+    <form [formGroup]="editarForm" (ngSubmit)="AddIncident(editarForm.value)"> 
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre del Incidente" formControlName="name">
+
+            <label for="exampleFormControlInput1">Dominio</label>
+            <input type="text" class="form-control" placeholder="Nombre del dominio" formControlName="domain">
+            
+            <label for="exampleFormControlInput1">Descripción</label>
+            <input type="text" class="form-control" placeholder="Descripción del incidente" formControlName="description">
+            
+            <label for="exampleFormControlInput1">Versión</label>
+            <input type="text" class="form-control" placeholder="Versión" formControlName="version">
+
+            
+            <label for="exampleFormControlInput1">Status</label>
+            <input type="text" class="form-control" placeholder="Status" formControlName="status">
+
+            
+            <input type="text" type="hidden" class="form-control" placeholder="Status" formControlName="projectId">
+        </div>
+        <br>
+        <button id="buttonUpdate" type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+</div>
+<button mat-raised-button mat-icon-button class="example-icon favorite-icon"
+matTooltip="Volver" 
+aria-label="Example icon-button with heart icon" (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>

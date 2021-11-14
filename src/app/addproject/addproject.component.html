@@ -1,0 +1,11 @@
+<app-project></app-project>
+<div id="block_container">
+  <h1>Ingrese el nombre del proyecto</h1>
+  <br>
+  <div>
+    <input class="form-control" type="text" placeholder="Nombre del proyecto" #project />
+  </div>
+  <div>
+    <button id="buttonAdd" class="btn btn-primary" (click)="addProject(project.value)" href="javascript:void(0)">Agregar</button>
+  </div>
+</div>
