@@ -150,3 +150,7 @@ h1{
   #menu ul li:hover > ul {
   display:block;
   }
+
+ #delete:hover{
+    color: rgb(255, 36, 36);
+  }

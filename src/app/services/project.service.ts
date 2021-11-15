@@ -36,6 +36,11 @@ export class ProjectService {
     subscribe((response)=>{alert(JSON.stringify(response))});;
   }
 
+  deleteProjectById(id:string){
+    return this.http.delete('https://localhost:8443/projects/' + id, this.header.getHttpOptions()).
+    subscribe((response)=>{alert(JSON.stringify(response))});;
+  }
+  
   updateProject(form:Project){
     const body = {id: form.id,  incidents:[],  Name: form.name, users:[]};
     this.http.put('https://localhost:8443/projects/'+ form.id, body, this.header.getHttpOptions()).

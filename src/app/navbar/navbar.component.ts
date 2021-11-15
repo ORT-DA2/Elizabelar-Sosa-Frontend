@@ -19,6 +19,6 @@ export class NavbarComponent implements OnInit {
     this.route.navigate(['login']);
   }
   public sendToHome(){
-    this.route.navigate(['project']);
+    this.route.navigate(['listproject']);
   }
 }

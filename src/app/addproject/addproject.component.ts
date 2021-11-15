@@ -8,24 +8,19 @@ import { ProjectService } from '../services/project.service';
 })
 export class AddprojectComponent implements OnInit {
   _projectService: ProjectService;
+  name = '';
   constructor(public projectService: ProjectService) 
   { 
     this._projectService = projectService;
   }
-//estos metodos van en el service
+  
   ngOnInit(): void {
   }
-  loadProjects()
-  {
-    
-  }
-  removeProject(id:number)
-  {
-    
-  }
-  addProject(name:string)
+   
+  public addProject(name:string)
   {
     this._projectService.addProject(name);
+    this.name = '';
   }
   refresh(): void {
     window.location.reload();

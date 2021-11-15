@@ -27,6 +27,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { AdduserprojectComponent } from './adduserproject/adduserproject.component';
 import { AngularDualListBoxModule } from 'angular-dual-listbox';
 import { AddincidentComponent } from './addincident/addincident.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AddincidentComponent } from './addincident/addincident.component';
     MatIconModule,
     MatTableModule,
     MatTooltipModule,
-    AngularDualListBoxModule
+    AngularDualListBoxModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [ AppComponent, LoginComponent, ProjectComponent,AddprojectComponent, ListprojectComponent]

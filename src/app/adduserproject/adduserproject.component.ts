@@ -54,9 +54,6 @@ export class AdduserprojectComponent implements OnInit {
       const copy = data.map(item => (item.username));
       this.target = copy;
     });
-    for(let i = 0; i < this.users.length; i++){
-      console.log(this.target[i]);
-  }
 }
 
   goBack() {

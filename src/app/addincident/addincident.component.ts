@@ -11,7 +11,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./addincident.component.css']
 })
 export class AddincidentComponent implements OnInit {
+  status = new FormControl();
 
+  statusList: string[] = ['active', 'inactive'];
   constructor(private _location: Location, private _incidentService: IncidentService, private activeRouter:ActivatedRoute) { 
 
   }
@@ -37,11 +39,29 @@ export class AddincidentComponent implements OnInit {
       'projectId':projectId
     });
   }
-  AddIncident(form:Incident){
-    this._incidentService.AddIncident(form);
+  AddIncident(form:Incident, status:string){
+    if(status != null){
+      form.status = status;
+      this._incidentService.AddIncident(form);
+      this.clear();
+    }
+    
   }
 
   goBack() {
     this._location.back();
+  }
+
+  clear(){
+    let projectId = this.activeRouter.snapshot.paramMap.get('id');
+    this.editarForm.setValue({
+      'id':'',
+      'name': '',
+      'domain': '',
+      'description': '',
+      'version': '',
+      'status': '',
+      'projectId':projectId
+    });
   }
 }

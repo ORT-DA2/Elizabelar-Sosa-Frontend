@@ -1,4 +1,4 @@
-import { Component, InputDecorator, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Incident } from '../Models/incident';
@@ -11,7 +11,9 @@ import {Location} from '@angular/common';
   styleUrls: ['./editincident.component.css']
 })
 export class EditincidentComponent implements OnInit {
+  status = new FormControl();
 
+  statusList: string[] = ['active', 'inactive'];
   constructor(private incidentService: IncidentService, private _location: Location, private activeRouter:ActivatedRoute, private router:Router) {
     
    }
@@ -42,16 +44,19 @@ export class EditincidentComponent implements OnInit {
         'projectId':projectId
       });
   }
-  public UpdateIncident(form:Incident)
+  public UpdateIncident(form:Incident, status:string)
   {
-    this.incidentService.UpdateIncident(form);
-  }
-
-  public DeleteIncident(form:Incident){
-    this.incidentService.DeleteIncident(form);
+    if(status != null){
+      form.status = status;
+      this.incidentService.UpdateIncident(form);
+    }
   }
 
   goBack() {
     this._location.back();
+  }
+  
+  public DeleteIncidentByFrom(form:Incident){
+    this.incidentService.DeleteIncidentByFrom(form);
   }
 }

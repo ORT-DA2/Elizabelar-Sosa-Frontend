@@ -30,4 +30,13 @@ export class ListprojectComponent implements OnInit {
   public listIncidents(id:string){
     this.router.navigate(['projects', id, 'incident']);
   }
+  
+  DeleteProject(id:string){
+    this.projectService.deleteProjectById(id);
+    this.refresh();
+  }
+
+  refresh(): void {
+    window.location.reload();
+  }
 }
