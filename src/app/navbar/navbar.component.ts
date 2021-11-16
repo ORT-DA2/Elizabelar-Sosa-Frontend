@@ -8,17 +8,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private login:LoginService, private route:Router) { }
-
-  ngOnInit(): void {
+public rol:string;
+showMainContent: Boolean = true;
+  constructor(private login:LoginService, private route:Router, private loginService:LoginService) { 
+    this.rol=loginService.GetRole();
   }
 
+  ngOnInit(): void {
+    this.rol = this.loginService.GetRole();
+    this.ShowHideButton();
+  }
+  ShowHideButton() {
+    if(this.rol == "ADMINISTRATOR"){
+      this.showMainContent = true;
+    }
+    else
+    {
+      this.showMainContent = false;
+    }
+ }
   public doLogout(){
     this.login.doLogout();
     this.route.navigate(['login']);
   }
   public sendToHome(){
-    this.route.navigate(['project']);
+    this.route.navigate(['dashboard']);
   }
 }

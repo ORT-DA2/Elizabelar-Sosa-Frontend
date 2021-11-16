@@ -8,24 +8,19 @@ h1{
     text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
     text-align: center;
     text-transform: uppercase;
-    font-size: 52px;
+    font-size: 62px;
     background: linear-gradient(to bottom, #ece4d9 0%,#e9dfd1 100%);
     font-weight: bold;
     position: center;
     padding: 10px 20px;
     border-radius: 20px;
   }
-
-#buttonUpdate{
-	margin-right: 10px;
-}
-
-#buttonUpdate, #buttonDelete{
-	width: 70px;
-	height: 30px;
-	font-size: 12px;
-}
-
-input{
-  font-size: 13px;
+  #buttonAdd{
+    width: 70px;
+    height: 30px;
+    font-size: 12px;
+    }
+    
+  input{
+    font-size: 13px;
 }

@@ -52,3 +52,11 @@
     cursor: pointer;
   }
   
+  #delete:hover{
+    color: rgb(255, 36, 36);
+  }
+
+ #mat{
+   width: 60px;
+   margin-left: 78px;
+ }

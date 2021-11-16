@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <h1 class="text-center">Listado de Incidentes</h1>
+
 <div class="main-menu">
   <nav id="menu">
       <ul>
@@ -40,6 +41,9 @@
           </td>
           <td>
             <mat-icon matTooltip="Editar" (click)="UpdateIncident(incident.id, incident.name,incident.domain, incident.description, incident.version, incident.status)">edit</mat-icon> 
+          </td>
+          <td>
+            <mat-icon id="delete" matTooltip="Borrar" (click)="DeleteIncident(incident.id)">delete</mat-icon> 
           </td>
         </tr>
         </tbody>

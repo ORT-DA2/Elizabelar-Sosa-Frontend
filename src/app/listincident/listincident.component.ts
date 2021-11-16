@@ -10,7 +10,6 @@ import {Location} from '@angular/common';
   providers: [IncidentService]
 })
 export class ListincidentComponent implements OnInit {
-
   incidents:Incident[];
  
   project:string;
@@ -33,8 +32,15 @@ export class ListincidentComponent implements OnInit {
     this._location.back();
   }
   addIncident(){
-    console.log('/projects/'+ this.project +'/addincident');
     this.router.navigate(['/projects/'+ this.project +'/addincident']);
+  }
+
+  public DeleteIncidentByFrom(form:Incident){
+    this.incidentService.DeleteIncidentByFrom(form);
+  }
+
+  public DeleteIncident(incident:string){
+    this.incidentService.DeleteIncident(incident);
   }
 }
 

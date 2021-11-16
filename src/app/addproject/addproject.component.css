@@ -9,12 +9,6 @@
 	height:25%;
 }
 
-#input{
-  margin-bottom: 10px;
-  font-size: 28px;
-  width: 20%;
-}
-
 #buttonAdd{
   margin-top: 10px;
   width: 70px;
@@ -24,6 +18,8 @@
 
 .form-control{
   width: 80%;
-  font-size: 15px;
 }
 
+input{
+  font-size: 13px;
+}

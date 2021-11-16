@@ -22,9 +22,9 @@ export class LoginComponent {
 
     onLogin(form: Login){
       this.login.Login(form).subscribe(
-        (token: string) => {
+        (token:string) => {
           if (this.login.isLoggedIn()){
-            this.router.navigate(['/listproject']);
+            this.router.navigate(['dashboard']);
           }
         }
       )

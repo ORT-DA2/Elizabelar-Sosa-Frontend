@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class HeaderService {
   private tokenKey:string = 'authToken';
 
-  constructor() { }
+  constructor(private login:LoginService) { }
 
   getHttpOptions(){
     const httpOptions = {
@@ -15,9 +16,8 @@ export class HeaderService {
      'Content-Type': 'application/json'
     })
    };
-   let currentUser = sessionStorage.getItem(this.tokenKey);
-   let token = currentUser;
-   httpOptions.headers = httpOptions.headers.set('auth',  JSON.stringify(token));
+   let token = String(sessionStorage.getItem(this.tokenKey));
+   httpOptions.headers = httpOptions.headers.set('auth',  token);
    return httpOptions;
   }
   

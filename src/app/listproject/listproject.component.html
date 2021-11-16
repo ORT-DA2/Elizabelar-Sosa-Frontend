@@ -6,6 +6,7 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
+        <th scope="col">Cantidad de incidentes</th>
       </tr>
     </thead>
     <tbody>
@@ -17,10 +18,19 @@
           {{project.name}}
         </td>
         <td>
+          1
+        </td>
+        <td id="mat">
+          <mat-icon matTooltip="Agregar usuarios" (click)="addUser(project.id)">account_circle</mat-icon>
+        </td>
+        <td id="mat">
           <mat-icon matTooltip="Editar" (click)="updateProject(project.id, project.name)">edit</mat-icon> 
         </td>
-        <td>
-          <mat-icon matTooltip="Agregar usuarios" (click)="addUser(project.id)">add</mat-icon>
+        <td id="mat">
+          <mat-icon matTooltip="Ver Incidentes" (click)="listIncidents(project.id)">search</mat-icon>
+        </td>
+        <td id="mat">
+          <mat-icon id="delete" matTooltip="Borrar" (click)="DeleteProject(project.id)">delete</mat-icon> 
         </td>
       </tr>
     </tbody>
