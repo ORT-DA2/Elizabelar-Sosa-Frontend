@@ -8,11 +8,13 @@ import { HeaderService } from "./header.service";
   providedIn: "root"
 })
 export class UsersService {
-  constructor(private http: HttpClient, private header:HeaderService) {}
-
-  login(user: any): Observable<any> {
-    return this.http.post("http://localhost:8080/auth", user);
+  AddUser(form: User) {
+    const body = {firstname: form.firstname, lastname: form.lastname, username: form.username, 
+      password: form.password, email: form.email, role:form.role};
+    this.http.post('https://localhost:8443/users', body, this.header.getHttpOptions()).
+    subscribe((response)=>{alert(JSON.stringify(response))}); 
   }
+  constructor(private http: HttpClient, private header:HeaderService) {}
 
   public GetUsers() {
     return this.http.get<User[]>('https://localhost:8443/users/', this.header.getHttpOptions());

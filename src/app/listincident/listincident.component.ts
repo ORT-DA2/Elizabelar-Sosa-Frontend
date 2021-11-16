@@ -40,7 +40,7 @@ export class ListincidentComponent implements OnInit {
   }
 
   public DeleteIncident(incident:string){
-    this.incidentService.DeleteIncident(incident, this.project);
+    this.incidentService.DeleteIncident(incident);
   }
 }
 

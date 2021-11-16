@@ -6,6 +6,7 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
+        <th scope="col">Cantidad de incidentes</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +16,9 @@
         </td>
         <td>
           {{project.name}}
+        </td>
+        <td>
+          1
         </td>
         <td id="mat">
           <mat-icon matTooltip="Agregar usuarios" (click)="addUser(project.id)">account_circle</mat-icon>

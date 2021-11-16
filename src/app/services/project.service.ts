@@ -5,6 +5,7 @@ import { User } from "../Models/user";
 import { Observable } from "rxjs";
 import { HeaderService } from "./header.service";
 import { FormControl, FormGroup } from '@angular/forms';
+import { LoginService } from "./login.service";
 
 @Injectable(
   {
@@ -13,11 +14,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 )
 
 export class ProjectService {
-  constructor(private http:HttpClient, private header:HeaderService){
+  constructor(private http:HttpClient, private header:HeaderService, private login:LoginService){
   }
 
  public GetProjects(): Observable<Project[]> {
-   return this.http.get<Project[]>('https://localhost:8443/projects/', this.header.getHttpOptions());
+   return this.http.get<Project[]>('https://localhost:8443/projects?count=true', this.header.getHttpOptions());
 }
 
   public addProject(name:string){

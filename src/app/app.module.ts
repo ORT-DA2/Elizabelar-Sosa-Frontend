@@ -28,6 +28,8 @@ import { AdduserprojectComponent } from './adduserproject/adduserproject.compone
 import { AngularDualListBoxModule } from 'angular-dual-listbox';
 import { AddincidentComponent } from './addincident/addincident.component';
 import {MatSelectModule} from '@angular/material/select';
+import { AdduserComponent } from './adduser/adduser.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {MatSelectModule} from '@angular/material/select';
     EditincidentComponent,
     NavbarComponent,
     AdduserprojectComponent,
-    AddincidentComponent
+    AddincidentComponent,
+    AdduserComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

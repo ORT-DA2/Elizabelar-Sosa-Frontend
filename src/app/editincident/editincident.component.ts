@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Incident } from '../Models/incident';
 import { IncidentService } from '../services/incident.service';
 import {Location} from '@angular/common';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-editincident',
@@ -12,10 +13,10 @@ import {Location} from '@angular/common';
 })
 export class EditincidentComponent implements OnInit {
   status = new FormControl();
-
+  rol:string;
   statusList: string[] = ['active', 'inactive'];
-  constructor(private incidentService: IncidentService, private _location: Location, private activeRouter:ActivatedRoute, private router:Router) {
-    
+  constructor(private incidentService: IncidentService, private _location: Location, private loginService:LoginService, private activeRouter:ActivatedRoute, private router:Router) {
+    this.rol=loginService.GetRole();
    }
    editarForm = new FormGroup({
     id: new FormControl(''),

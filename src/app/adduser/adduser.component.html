@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<h1>Agregar usuarios</h1>
+
+<div class="container">
+    <form [formGroup]="editarForm" (ngSubmit)="AddUser(editarForm.value, role.value)"> 
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="firstname">
+
+            <label for="exampleFormControlInput1">Apellido</label>
+            <input type="text" class="form-control" placeholder="Apellido" formControlName="lastname">
+            
+            <label for="exampleFormControlInput1">Nombre de Usuario</label>
+            <input type="text" class="form-control" placeholder="Nombre de Usuario" formControlName="username">
+
+            <label for="exampleFormControlInput1">Email</label>
+            <input type="text" class="form-control" placeholder="Email" formControlName="email">
+
+            <label for="exampleFormControlInput1">Contraseña</label>
+            <input type="password" class="form-control" placeholder="Contraseña" formControlName="password">
+
+            
+            <label for="exampleFormControlInput1">Roles</label>
+            <br>
+            <mat-form-field appearance="fill">
+              <mat-label>Rol</mat-label>
+              <mat-select [formControl]="role" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let role of roleList" [value]="role">
+                  {{role}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="role.hasError('required')">Selecione un rol</mat-error>
+              <mat-hint>{{role.value?.sound}}</mat-hint>
+            </mat-form-field>
+
+            
+        </div>
+        <br>
+        <button id="buttonAdd" type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+</div>
+<button mat-raised-button mat-icon-button class="example-icon favorite-icon"
+matTooltip="Volver" 
+aria-label="Example icon-button with heart icon" (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>

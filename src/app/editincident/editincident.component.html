@@ -3,17 +3,18 @@
 <div class="container">
     <form [formGroup]="editarForm" (ngSubmit)="UpdateIncident(editarForm.value, status.value)"> 
         <div class="form-group">
+
             <label for="exampleFormControlInput1">Nombre</label>
-            <input type="text" class="form-control" placeholder="Nombre del Incidente" formControlName="name">
+            <input [readonly]="rol == 'DESARROLLADOR'"  type="text" class="form-control" placeholder="Nombre del Incidente" formControlName="name">
 
             <label for="exampleFormControlInput1">Dominio</label>
-            <input type="text" class="form-control" placeholder="Nombre del dominio" formControlName="domain">
+            <input [readonly]="rol == 'DESARROLLADOR'" type="text" class="form-control" placeholder="Nombre del dominio" formControlName="domain">
             
             <label for="exampleFormControlInput1">Descripción</label>
-            <input type="text" class="form-control" placeholder="Descripción del incidente" formControlName="description">
+            <input [readonly]="rol == 'DESARROLLADOR'" type="text" class="form-control" placeholder="Descripción del incidente" formControlName="description">
             
             <label for="exampleFormControlInput1">Versión</label>
-            <input type="text" class="form-control" placeholder="Versión" formControlName="version">
+            <input [readonly]="rol == 'DESARROLLADOR'" type="text" class="form-control" placeholder="Versión" formControlName="version">
 
             <label for="exampleFormControlInput1">Status</label>
             <br>

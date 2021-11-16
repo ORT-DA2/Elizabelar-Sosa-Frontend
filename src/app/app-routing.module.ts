@@ -10,11 +10,15 @@ import { EditincidentComponent } from './editincident/editincident.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdduserprojectComponent } from './adduserproject/adduserproject.component';
 import { AddincidentComponent } from './addincident/addincident.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'project', component: ProjectComponent},
   {path: 'login', component: LoginComponent},
   {path: 'navbar', component: NavbarComponent},
+  {path: 'adduser', component: AdduserComponent},
   {path: 'userproject/:id', component: AdduserprojectComponent},
   {path: 'addproject', component: AddprojectComponent},
   {path: 'listproject', component: ListprojectComponent},
