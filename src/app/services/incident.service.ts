@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Incident } from "../Models/incident";
-import { from, Observable } from "rxjs";
+import { Observable } from "rxjs";
 import { HeaderService } from "./header.service";
+import { LoginService } from "./login.service";
 
 @Injectable(
   {
@@ -11,13 +12,16 @@ import { HeaderService } from "./header.service";
 )
 
 export class IncidentService {
-  constructor(private http:HttpClient, private header:HeaderService){
+  constructor(private http:HttpClient, private header:HeaderService, private user:LoginService){
   }
 
- public GetIncidents(id:string): Observable<Incident[]> {
-   return this.http.get<Incident[]>('https://localhost:8443/incidents/' + id , this.header.getHttpOptions());
+ public GetIncidentsByProject(id:string): Observable<Incident[]> {
+   return this.http.get<Incident[]>('https://localhost:8443/incidents?projectId=' + id, this.header.getHttpOptions());
   }
-
+  
+  public GetIncidents(username:string): Observable<Incident[]> {
+    return this.http.get<Incident[]>('https://localhost:8443/incidents?username=' + username, this.header.getHttpOptions());
+   }
   public UpdateIncident(incident:Incident){
     const body = {id: incident.id, name: incident.name, domain: incident.domain, 
     description: incident.description, version: incident.version,
@@ -36,11 +40,11 @@ export class IncidentService {
     subscribe((response)=>{alert(JSON.stringify(response))});;
     }
 
-  public AddIncident(form:Incident){
+  public AddIncident(form:Incident, username:string){
     const body = {name: form.name, domain: form.domain, 
-      description: form.description, version: form.version,
-      status: form.status, projectId:form.projectId};
-    this.http.post('https://localhost:8443/incidents/', body, this.header.getHttpOptions()).
+    description: form.description, version: form.version,
+    status: form.status, projectId:form.projectId};
+    this.http.post('https://localhost:8443/incidents/?username='+ username, body, this.header.getHttpOptions()).
     subscribe((response)=>{alert(JSON.stringify(response))}); 
   }
 }

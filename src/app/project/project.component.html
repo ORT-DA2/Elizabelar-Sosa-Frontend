@@ -3,10 +3,8 @@
 
 <div class="main-menu">
     <nav id="menu">
-        <ul>
-            <li><a href="listproject">Mostrar Proyectos</a></li>
-            <li><a href="addproject">Agregar Proyectos</a></li>
-        </ul>
+        <button id="buttonShow" mat-button routerLink="/listproject">Mostrar Proyectos</button>
+        <button id="buttonAdd" [hidden]='!showMainContent' mat-button routerLink="/addproject">Agregar Proyectos</button>
     </nav>  
 </div>   
 

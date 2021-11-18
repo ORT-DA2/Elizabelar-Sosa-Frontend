@@ -5,6 +5,8 @@ import { Incident } from '../Models/incident';
 import { IncidentService } from '../services/incident.service';
 import {Location} from '@angular/common';
 import { LoginService } from '../services/login.service';
+import { ProjectService } from '../services/project.service';
+import { Project } from '../Models/project';
 
 @Component({
   selector: 'app-editincident',
@@ -13,10 +15,14 @@ import { LoginService } from '../services/login.service';
 })
 export class EditincidentComponent implements OnInit {
   status = new FormControl();
-  rol:string;
+  rol:string = '';
   statusList: string[] = ['active', 'inactive'];
-  constructor(private incidentService: IncidentService, private _location: Location, private loginService:LoginService, private activeRouter:ActivatedRoute, private router:Router) {
+
+  projectList:Project[] = [];
+  project = new FormControl();
+  constructor(private projectService:ProjectService, private incidentService: IncidentService, private _location: Location, private loginService:LoginService, private activeRouter:ActivatedRoute, private router:Router) {
     this.rol=loginService.GetRole();
+    this.projectService.GetProjects().subscribe(data => this.projectList = data);
    }
    editarForm = new FormGroup({
     id: new FormControl(''),
@@ -25,9 +31,10 @@ export class EditincidentComponent implements OnInit {
     description: new FormControl(''),
     version: new FormControl(''),
     status: new FormControl(''),
-    projectId: new FormControl('')
+    project: new FormControl('')
     });
   ngOnInit(): void {
+    this.rol=this.loginService.GetRole();
     let id = this.activeRouter.snapshot.paramMap.get('id');
     let name = this.activeRouter.snapshot.paramMap.get('name');
     let domain = this.activeRouter.snapshot.paramMap.get('domain');
@@ -42,13 +49,14 @@ export class EditincidentComponent implements OnInit {
         'description': description,
         'version': version,
         'status': status,
-        'projectId':projectId
+        'project':projectId
       });
   }
-  public UpdateIncident(form:Incident, status:string)
+  public UpdateIncident(form:Incident, status:string, project:string)
   {
     if(status != null){
       form.status = status;
+      form.projectId = project;
       this.incidentService.UpdateIncident(form);
     }
   }
@@ -59,5 +67,6 @@ export class EditincidentComponent implements OnInit {
   
   public DeleteIncidentByFrom(form:Incident){
     this.incidentService.DeleteIncidentByFrom(form);
+    this.goBack();
   }
 }

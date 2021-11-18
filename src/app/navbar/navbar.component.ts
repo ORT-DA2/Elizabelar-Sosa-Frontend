@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 public rol:string;
 showMainContent: Boolean = true;
+ShowDeveloper: Boolean = true;
+
   constructor(private login:LoginService, private route:Router, private loginService:LoginService) { 
     this.rol=loginService.GetRole();
   }
@@ -17,6 +19,7 @@ showMainContent: Boolean = true;
   ngOnInit(): void {
     this.rol = this.loginService.GetRole();
     this.ShowHideButton();
+    this.OnlyDeveloper();
   }
   ShowHideButton() {
     if(this.rol == "ADMINISTRATOR"){
@@ -27,11 +30,22 @@ showMainContent: Boolean = true;
       this.showMainContent = false;
     }
  }
+ OnlyDeveloper(){
+  if(this.rol == "DEVELOPER"){
+    this.ShowDeveloper = true;
+  }else{
+    this.ShowDeveloper = false;
+  }
+ }
   public doLogout(){
     this.login.doLogout();
     this.route.navigate(['login']);
   }
   public sendToHome(){
-    this.route.navigate(['dashboard']);
+    if(this.rol == "ADMINISTRATOR"){
+      this.route.navigate(['listproject']);
+    }else if(this.rol != "ADMINISTRATOR"){
+      this.route.navigate(['listuserincident']);
+    }
   }
 }

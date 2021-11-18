@@ -24,9 +24,17 @@ export class LoginComponent {
       this.login.Login(form).subscribe(
         (token:string) => {
           if (this.login.isLoggedIn()){
-            this.router.navigate(['dashboard']);
+            if(this.login.GetRole() == 'ADMINISTRATOR'){
+              this.router.navigate(['listproject']);
+            }
+            else if(this.login.GetRole() == 'DEVELOPER'){
+              this.router.navigate(['listuserincident']);
+              }
+              else if(this.login.GetRole() == 'TESTER'){
+                this.router.navigate(['listuserincident']);
+                }
+            }
           }
-        }
       )
     }
     

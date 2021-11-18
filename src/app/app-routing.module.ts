@@ -11,10 +11,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdduserprojectComponent } from './adduserproject/adduserproject.component';
 import { AddincidentComponent } from './addincident/addincident.component';
 import { AdduserComponent } from './adduser/adduser.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { ListuserincidentComponent } from './listuserincident/listuserincident.component';
+import { ListtaskComponent } from './listtask/listtask.component';
+import { AddtaskComponent } from './addtask/addtask.component';
+import { ImportComponent } from './import/import.component';
+
 const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'listuserincident', component: ListuserincidentComponent},
+  {path: 'addtask', component: AddtaskComponent},
+  {path: 'imports/:id', component: ImportComponent},
+  {path: 'listtask', component: ListtaskComponent},
   {path: 'project', component: ProjectComponent},
   {path: 'login', component: LoginComponent},
   {path: 'navbar', component: NavbarComponent},
@@ -24,8 +31,8 @@ const routes: Routes = [
   {path: 'listproject', component: ListprojectComponent},
   {path: 'editproject/:id', component: EditprojectComponent},
   {path: 'projects/:id/incident', component: ListincidentComponent},
-  {path: 'projects/:id/addincident', component: AddincidentComponent},
-  {path: 'projects/:id/incident/:id', component: EditincidentComponent},
+  {path: 'addincident', component: AddincidentComponent},
+  {path: 'incidents/:id', component: EditincidentComponent},
   {path: '**', redirectTo:'login', pathMatch:'full'},
 ];
 
@@ -34,4 +41,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [ LoginComponent, AddprojectComponent, ListprojectComponent, ProjectComponent, EditprojectComponent, ListincidentComponent,EditincidentComponent, AddincidentComponent]
+export const routingComponents = [ ListuserincidentComponent, ListuserincidentComponent, LoginComponent, AddprojectComponent, ListprojectComponent, ProjectComponent, EditprojectComponent, ListincidentComponent,EditincidentComponent, AddincidentComponent]

@@ -21,7 +21,7 @@
           1
         </td>
         <td id="mat">
-          <mat-icon matTooltip="Agregar usuarios" (click)="addUser(project.id)">account_circle</mat-icon>
+          <mat-icon matTooltip="Agregar usuarios" [hidden]='!showMainContent' (click)="addUser(project.id)">account_circle</mat-icon>
         </td>
         <td id="mat">
           <mat-icon matTooltip="Editar" (click)="updateProject(project.id, project.name)">edit</mat-icon> 
