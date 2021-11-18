@@ -29,7 +29,11 @@ import { AngularDualListBoxModule } from 'angular-dual-listbox';
 import { AddincidentComponent } from './addincident/addincident.component';
 import {MatSelectModule} from '@angular/material/select';
 import { AdduserComponent } from './adduser/adduser.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { ListuserincidentComponent } from './listuserincident/listuserincident.component';
+import { ListtaskComponent } from './listtask/listtask.component';
+import { AddtaskComponent } from './addtask/addtask.component';
+import { ImportComponent } from './import/import.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AdduserprojectComponent,
     AddincidentComponent,
     AdduserComponent,
-    DashboardComponent
+    FilterPipe,
+    ListuserincidentComponent,
+    ListtaskComponent,
+    AddtaskComponent,
+    ImportComponent
   ],
   imports: [
     BrowserModule,

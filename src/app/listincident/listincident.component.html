@@ -3,11 +3,17 @@
 
 <div class="main-menu">
   <nav id="menu">
-      <ul>
-          <li><a  (click)="addIncident()">Agregar Incidentes</a></li>
-      </ul>
+    <button id="buttonAdd" (click)="addIncident()">Agregar Incidentes</button>
   </nav>  
+</div>
+<div class="buttonImport">
+<button (click)="Import()">Importar</button>
+</div> 
+<br>
+<div class="search">
+  <input type="text" name="filterIncident" placeholder="Buscar" [(ngModel)]="filterIncident">
 </div>  
+<br>
 <table class="table table-hover">
     <thead>
       <tr>
@@ -20,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let incident of incidents" scope="row">
+        <tr *ngFor="let incident of incidents | filter:filterIncident" scope="row">
           <td>
             {{incident.id}}
           </td>
@@ -43,7 +49,7 @@
             <mat-icon matTooltip="Editar" (click)="UpdateIncident(incident.id, incident.name,incident.domain, incident.description, incident.version, incident.status)">edit</mat-icon> 
           </td>
           <td>
-            <mat-icon id="delete" matTooltip="Borrar" (click)="DeleteIncident(incident.id)">delete</mat-icon> 
+            <mat-icon  id="delete" matTooltip="Borrar" (click)="DeleteIncident(incident.id)">delete</mat-icon> 
           </td>
         </tr>
         </tbody>

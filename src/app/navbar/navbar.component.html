@@ -6,11 +6,21 @@
   <div class="span">
   <span class="example-spacer"></span>
   <button [hidden]='!showMainContent' mat-button routerLink="/adduser">Usuarios</button>
-<span class="example-spacer"></span>
+  <span class="example-spacer"></span>
   <span class="example-spacer"></span>
 
-  <button mat-button routerLink="/listproject">Proyectos</button>
+  <button [hidden]='!showMainContent' mat-button routerLink="/listproject">Proyectos</button>
 <span class="example-spacer"></span>
+
+<span class="example-spacer"></span>
+  <button  [hidden]='!ShowDeveloper' mat-button routerLink="/listuserincident">Incidentes</button>
+<span class="example-spacer"></span>
+
+<span class="example-spacer"></span>
+  <button  mat-button routerLink="/listtask">Tareas</button>
+<span class="example-spacer"></span>
+
+
 </div> 
 <div class="logout"> 
 <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">

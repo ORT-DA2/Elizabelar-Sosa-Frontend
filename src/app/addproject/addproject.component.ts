@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-addproject',
@@ -9,7 +10,7 @@ import { ProjectService } from '../services/project.service';
 export class AddprojectComponent implements OnInit {
   _projectService: ProjectService;
   name = '';
-  constructor(public projectService: ProjectService) 
+  constructor(private _location: Location, public projectService: ProjectService) 
   { 
     this._projectService = projectService;
   }
@@ -25,6 +26,8 @@ export class AddprojectComponent implements OnInit {
   refresh(): void {
     window.location.reload();
 }
-
+goBack() {
+  this._location.back();
+}
 }
 

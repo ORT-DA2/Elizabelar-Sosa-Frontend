@@ -11,17 +11,17 @@ import {Location} from '@angular/common';
 })
 export class ListincidentComponent implements OnInit {
   incidents:Incident[];
- 
+  filterIncident  = ''
   project:string;
+
   constructor(private incidentService: IncidentService,  private _location: Location, private activeRouter:ActivatedRoute, private router:Router) { 
   this.incidents = [];
   this.project =  this.activeRouter.snapshot.params.id;
   }
   ngOnInit(): void {
     const  projectId:string = this.activeRouter.snapshot.params.id;
-    this.incidentService.GetIncidents(projectId).subscribe(data => this.incidents = data);
+    this.incidentService.GetIncidentsByProject(projectId).subscribe(data => this.incidents = data);
     project:projectId;
-    
   }
 
   public UpdateIncident(id:string, name:string, domain:string, description:string, version:string, status:string){
@@ -34,7 +34,9 @@ export class ListincidentComponent implements OnInit {
   addIncident(){
     this.router.navigate(['/projects/'+ this.project +'/addincident']);
   }
-
+  Import(){
+    this.router.navigate(['imports/'+ this.project]);
+  }
   public DeleteIncidentByFrom(form:Incident){
     this.incidentService.DeleteIncidentByFrom(form);
   }

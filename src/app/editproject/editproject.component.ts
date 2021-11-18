@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../Models/project';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-editproject',
@@ -10,7 +11,7 @@ import { Project } from '../Models/project';
   styleUrls: ['./editproject.component.css']
 })
 export class EditprojectComponent implements OnInit {
-  constructor(private projectService: ProjectService, private activeRouter:ActivatedRoute, private router:Router) { }
+  constructor(private _location: Location, private projectService: ProjectService, private activeRouter:ActivatedRoute, private router:Router) { }
   editarForm = new FormGroup({
     id: new FormControl(''),
     name: new FormControl('')
@@ -35,5 +36,8 @@ export class EditprojectComponent implements OnInit {
 
   public deleteProject(form:Project){
       this.projectService.deleteProject(form);
+  }
+  goBack() {
+    this._location.back();
   }
 }

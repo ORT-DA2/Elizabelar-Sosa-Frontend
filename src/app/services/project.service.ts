@@ -4,8 +4,6 @@ import { Project } from "../Models/project";
 import { User } from "../Models/user";
 import { Observable } from "rxjs";
 import { HeaderService } from "./header.service";
-import { FormControl, FormGroup } from '@angular/forms';
-import { LoginService } from "./login.service";
 
 @Injectable(
   {
@@ -14,7 +12,7 @@ import { LoginService } from "./login.service";
 )
 
 export class ProjectService {
-  constructor(private http:HttpClient, private header:HeaderService, private login:LoginService){
+  constructor(private http:HttpClient, private header:HeaderService){
   }
 
  public GetProjects(): Observable<Project[]> {
@@ -34,7 +32,7 @@ export class ProjectService {
 
   deleteProject(form:Project){
     return this.http.delete('https://localhost:8443/projects/' + form.id, this.header.getHttpOptions()).
-    subscribe((response)=>{alert(JSON.stringify(response))});;
+    subscribe((response)=>{alert(JSON.stringify(response))});
   }
 
   deleteProjectById(id:string){

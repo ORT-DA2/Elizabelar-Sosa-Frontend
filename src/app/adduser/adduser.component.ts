@@ -22,7 +22,8 @@ export class AdduserComponent implements OnInit {
     username: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
-    role: new FormControl('')
+    role: new FormControl(''),
+    value: new FormControl(''),
     });
   ngOnInit(): void {
     
@@ -32,11 +33,13 @@ export class AdduserComponent implements OnInit {
       'username': '',
       'email': '',
       'password': '',
-      'role': ''
+      'role': '',
+      'value': ''
     });
   }
   AddUser(form:User, role:string){
     form.role = role;
+    console.log(form.value);
     this._userService.AddUser(form);
   }
 
@@ -53,6 +56,7 @@ export class AdduserComponent implements OnInit {
       'description': '',
       'version': '',
       'status': '',
+      'value':'',
       'projectId':projectId
     });
   }

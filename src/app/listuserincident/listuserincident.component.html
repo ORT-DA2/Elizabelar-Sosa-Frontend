@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+<h1 class="text-center">Listado de Incidentes</h1>
+
+<div class="main-menu">
+  <nav id="menu">
+      <button *ngIf="rol != 'DEVELOPER'" id="buttonAdd" mat-button (click)="AddIncident()">Agregar Incidentes</button>
+</nav>  
+</div>
+<div class="import">
+<br>
+<form [formGroup]="editarForm" (ngSubmit)="Import(project.value)" *ngIf="rol == 'DEVELOPER'">
+<mat-form-field appearance="fill">
+    <mat-label>Proyectos</mat-label>
+    <mat-select [formControl]="project" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let project of projectList" [value]="project.id">
+        {{project.id}}
+    </mat-option>
+    </mat-select>
+    <mat-error *ngIf="project.hasError('required')">Selecione un proyecto</mat-error>
+    <mat-hint>{{project.value?.sound}}</mat-hint>
+</mat-form-field>
+<br>
+<button id="buttonImport" type="submit" class="btn btn-primary" *ngIf="rol == 'DEVELOPER'">Importar</button>
+</form>
+</div>
+<br>
+<div class="search">
+  <input *ngIf="rol == 'DEVELOPER'" type="text" name="filterIncident" placeholder="Buscar" [(ngModel)]="filterIncident">
+</div>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Dominio</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Versión</th>
+        <th scope="col">Status</th>
+        <th scope="col">Id proyecto</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let incident of incidents | filter:filterIncident" scope="row">
+          <td>
+            {{incident.id}}
+          </td>
+          <td>
+            {{incident.name}}
+          </td>
+          <td>
+            {{incident.domain}}
+          </td>
+          <td>
+            {{incident.description}}
+          </td>
+          <td>
+            {{incident.version}}
+          </td>
+          <td>
+            {{incident.status}}
+          </td>
+          <td>
+            {{incident.projectId}}
+          </td>
+          <td>
+            <mat-icon matTooltip="Editar" (click)="UpdateIncident(incident.id, incident.name,incident.domain, incident.description, incident.version, incident.status, incident.projectId)">edit</mat-icon> 
+          </td>
+          <td>
+            <mat-icon *ngIf="rol != 'DEVELOPER'" id="delete" matTooltip="Borrar" (click)="DeleteIncident(incident.id)">delete</mat-icon> 
+          </td>
+        </tr>
+        </tbody>
+</table>
+
+<button mat-raised-button mat-icon-button class="example-icon favorite-icon"
+matTooltip="Volver" 
+aria-label="Example icon-button with heart icon" (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>
